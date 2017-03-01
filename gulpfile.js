@@ -14,11 +14,12 @@ const sass         = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 
 const paths = {
-  src:  './src',
-  dst:  './build',
-  css:  ['./src/**/*.s{c,a}ss'],
-  js:   ['./src/**/*.js'],
-  html: ['./src/**/*.html']
+  src:   './src',
+  dst:   './build',
+  css:   ['./src/**/*.s{c,a}ss'],
+  js:    ['./src/**/*.js'],
+  html:  ['./src/**/*.html'],
+  fonts: ['./src/**/*.{eot,ttf,woff,woff2}']
 };
 
 const port = (argv.port === undefined) ? 8080 : argv.port;
@@ -82,6 +83,11 @@ gulp.task('html-copy', () => {
     .pipe(gulp.dest(paths.dst));
 });
 
+gulp.task('fonts-copy', () => {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.dst));
+});
+
 gulp.task('sass', function () {
   return gulp.src(paths.css)
     .pipe(sass({includePaths: ['node_modules', 'node_modules/foundation-sites/scss']})
@@ -94,6 +100,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.html, ['html-hint', 'html-copy', 'doc', 'reload']);
   gulp.watch(paths.js, ['js-lint', 'js-copy', 'doc', 'reload']);
   gulp.watch(paths.css, ['css-lint', 'sass', 'reload']);
+  gulp.watch(paths.fonts, ['fonts-copy', 'reload']);
 });
 
 gulp.task('connect', () => {
@@ -109,6 +116,7 @@ gulp.task('default', [
   'css-lint',
   'html-hint',
   'css-copy',
+  'fonts-copy',
   'html-copy',
   'sass',
   'js-copy',
