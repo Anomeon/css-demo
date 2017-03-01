@@ -1,1 +1,7 @@
-./resources/configs/.jsdoc.json
+{
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "tutorials": "./demo"
+  }
+}

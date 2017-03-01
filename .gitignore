@@ -1,1 +1,6 @@
-./resources/configs/.gitignore
+.*.sw*
+npm-debug.log
+/bower_components/
+/node_modules/
+/docs/
+.idea/

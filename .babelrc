@@ -1,1 +1,3 @@
-./resources/configs/.babelrc
+{
+  "presets": ["es2015"]
+}

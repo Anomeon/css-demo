@@ -1,1 +1,5 @@
-./resources/configs/.eslintignore
+node_modules/**
+bower_components/**
+demo/**
+test/**
+docs/**
