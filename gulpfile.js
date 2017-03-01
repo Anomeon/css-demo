@@ -90,7 +90,7 @@ gulp.task('fonts-copy', () => {
 
 gulp.task('sass', function () {
   return gulp.src(paths.css)
-    .pipe(sass({includePaths: ['node_modules', 'node_modules/foundation-sites/scss']})
+    .pipe(sass({includePaths: ['node_modules/material-design-lite/src', 'node_modules/foundation-sites/scss']})
     .on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest(paths.dst));
