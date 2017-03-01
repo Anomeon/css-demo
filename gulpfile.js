@@ -19,7 +19,8 @@ const paths = {
   css:   ['./src/**/*.s{c,a}ss'],
   js:    ['./src/**/*.js'],
   html:  ['./src/**/*.html'],
-  fonts: ['./src/**/*.{eot,ttf,woff,woff2}']
+  fonts: ['./src/**/*.{eot,ttf,woff,woff2}'],
+  json:  ['./src/**/*.json']
 };
 
 const port = (argv.port === undefined) ? 8080 : argv.port;
@@ -88,6 +89,11 @@ gulp.task('fonts-copy', () => {
     .pipe(gulp.dest(paths.dst));
 });
 
+gulp.task('json-copy', () => {
+  return gulp.src(paths.json)
+    .pipe(gulp.dest(paths.dst));
+});
+
 gulp.task('sass', function () {
   return gulp.src(paths.css)
     .pipe(sass({includePaths: ['node_modules/material-design-lite/src', 'node_modules/foundation-sites/scss']})
@@ -101,6 +107,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.js, ['js-lint', 'js-copy', 'doc', 'reload']);
   gulp.watch(paths.css, ['css-lint', 'sass', 'reload']);
   gulp.watch(paths.fonts, ['fonts-copy', 'reload']);
+  gulp.watch(paths.json, ['json-copy', 'reload']);
 });
 
 gulp.task('connect', () => {
@@ -120,6 +127,7 @@ gulp.task('default', [
   'html-copy',
   'sass',
   'js-copy',
+  'json-copy',
   'doc',
   'watch',
   'connect'

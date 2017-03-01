@@ -5,30 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-  <div>
-    <button class="mdl-button mdl-js-button">
-      Button
-    </button>
-
-    <button class="mdl-button mdl-button--primary">
-      Primary button
-    </button>
-
-    <button class="mdl-button mdl-button--accent">
-      Accent button
-    </button>
-
-    <button class="mdl-button mdl-button--raised">
-      Raised button
-    </button>
-
-    <button class="mdl-button mdl-button--raised" disabled>
-      Raised disabled button
-    </button>
-  </div>
-  <script type="text/javascript" src="app.js"></script>
+  <table class="mdl-data-table mdl-shadow--2dp" id="example-table">
+    <caption>
+      <div class="mdl-textfield">
+        <input class="mdl-textfield__input" type="text" placeholder="filter" id="filter">
+      </div>
+    </caption>
+    <thead><tr></tr></thead>
+    <tbody></tbody>
+  </table>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="example-table.js"></script>
 </body>
 </html>
