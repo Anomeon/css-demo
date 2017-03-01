@@ -1,16 +1,17 @@
 'use strict';
 
-const gulp        = require('gulp');
-const csslint     = require('gulp-csslint');
-const htmlhint    = require("gulp-htmlhint");
-const eslint      = require('gulp-eslint');
-const babel       = require('gulp-babel');
-const connect     = require('gulp-connect');
-const jsdoc       = require('gulp-jsdoc3');
-const gulpIf      = require('gulp-if');
-const argv        = require('yargs').argv;
-const fileinclude = require('gulp-file-include');
-const sass        = require('gulp-sass');
+const gulp         = require('gulp');
+const csslint      = require('gulp-csslint');
+const htmlhint     = require("gulp-htmlhint");
+const eslint       = require('gulp-eslint');
+const babel        = require('gulp-babel');
+const connect      = require('gulp-connect');
+const jsdoc        = require('gulp-jsdoc3');
+const gulpIf       = require('gulp-if');
+const argv         = require('yargs').argv;
+const fileinclude  = require('gulp-file-include');
+const sass         = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
 const paths = {
   src:  './src',
@@ -85,6 +86,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.css)
     .pipe(sass({includePaths: ['node_modules', 'node_modules/foundation-sites/scss']})
     .on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(paths.dst));
 });
 
