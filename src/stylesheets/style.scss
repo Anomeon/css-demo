@@ -1,5 +1,7 @@
 @import "fonts";
 
+@import "material_settings";
+@import "@material/theme/mdc-theme";
 @import "@material/animation/mdc-animation";
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
@@ -18,11 +20,10 @@
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
 @import "@material/textfield/mdc-textfield";
-@import "@material/theme/mdc-theme";
 @import "@material/toolbar/mdc-toolbar";
 @import "@material/typography/mdc-typography";
 
-@import "settings";
+@import "foundation_settings";
 @import "foundation";
 
 // @include foundation-global-styles;
