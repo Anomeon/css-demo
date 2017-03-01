@@ -1,6 +1,7 @@
 @import "fonts";
 
 @import "material_settings";
+
 @import "@material/theme/mdc-theme";
 @import "@material/animation/mdc-animation";
 @import "@material/button/mdc-button";
@@ -65,3 +66,7 @@
 // @include foundation-visibility-classes;
 // @include foundation-float-classes;
 // @include foundation-flex-classes;
+
+body {
+  margin: 0;
+}
